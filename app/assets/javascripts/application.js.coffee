@@ -23,10 +23,16 @@
 
 videoplayer = _V_ "interactad_clip"
 
+curtain = $("#curtain")
+
 # Register events
 videoplayer.addEvent "ended", ->
-	$("#curtain").show()
+	curtain.show()
 
 	setTimeout ( ->
 		$("#quiz").fadeIn()
 	), 1000
+
+curtain.on "click", ->
+	videoplayer.play()
+	curtain.hide()
