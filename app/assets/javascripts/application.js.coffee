@@ -12,6 +12,7 @@
 #
 #= require jquery
 #= require jquery_ujs
+#= require video.min
 #= require h5bp
 #= require handlebars
 #= require ember
