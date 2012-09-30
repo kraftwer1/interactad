@@ -22,9 +22,9 @@ group :assets do
   gem 'compass-h5bp'
 end
 
-gem 'jquery-rails'
-gem 'html5-rails'
+gem 'jquery-rails', '2.0.3'
 gem 'ember-rails', '~> 0.7.0'
+gem 'html5-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
