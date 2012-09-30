@@ -6,5 +6,49 @@
 // Document styles
 //-----------------------------------------
 
-html
-body
+#container
+	video
+		position: absolute
+		top: 40px
+		left: 50%
+		margin-left: -480px
+
+	#quiz
+		// display: none // Uncomment for debugging
+		position: absolute
+		top: 0
+		color: white
+
+	#quiz .question
+		font-size: large
+		line-height: 50px
+		margin-bottom: 12px
+		padding: 0 10px
+		width: 940px
+
+	#quiz .answer
+		margin: 0 0 3px 12px
+		padding-left: 7px
+		line-height: 32px
+
+
+
+/* Helper classes */
+.alpha70
+	/* Fallback for web browsers that doesn't support RGBa */
+	background: rgb(0, 0, 0)
+	/* RGBa with 0.6 opacity */
+	background: rgba(0, 0, 0, 0.7)
+
+.alpha50
+	/* Fallback for web browsers that doesn't support RGBa */
+	background: rgb(0, 0, 0)
+	/* RGBa with 0.6 opacity */
+	background: rgba(0, 0, 0, 0.5)
+
+.alpha50:hover
+	/* Fallback for web browsers that doesn't support RGBa */
+	background: rgb(40, 40, 40)
+	/* RGBa with 0.6 opacity */
+	background: rgba(0, 0, 0, 0.6)
+	cursor: pointer
