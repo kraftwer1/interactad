@@ -6,8 +6,6 @@ gem 'rails', '3.2.8'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-gem 'sqlite3'
-
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -43,3 +41,7 @@ gem 'html5-rails'
 # gem 'debugger'
 
 gem 'newrelic_rpm'
+
+group :development do
+	gem 'sqlite3'
+end
