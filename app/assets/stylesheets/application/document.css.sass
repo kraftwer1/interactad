@@ -29,17 +29,18 @@ body
 		cursor: pointer
 
 	#quiz
-		display: none // Comment for debugging
+		box-model: border-box
+		// display: none // Comment for debugging
 		position: absolute
 		top: 0
 		color: white
+		width: 100%
 
 	#quiz .question
 		font-size: large
 		line-height: 50px
 		margin-bottom: 12px
 		padding: 0 10px
-		width: $videoW
 
 	#quiz .answer
 		margin: 0 0 3px 12px
