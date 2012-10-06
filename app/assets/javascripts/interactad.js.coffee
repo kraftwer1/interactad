@@ -9,29 +9,29 @@
 #= require_self
 App.initialize();
 
-quiz = $("#quiz")
-curtain = $("#curtain")
-buttonPlay = $("#buttonPlay")
-videoplayer = _V_ "interactad_clip"
+# quiz = $("#quiz")
+# curtain = $("#curtain")
+# buttonPlay = $("#buttonPlay")
+# videoplayer = _V_ "interactad_clip"
 
 
-play = ->
-	videoplayer.play()
-	quiz.fadeOut()
-	curtain.fadeOut ->
-		buttonPlay.hide()
+# play = ->
+# 	videoplayer.play()
+# 	quiz.fadeOut()
+# 	curtain.fadeOut ->
+# 		buttonPlay.hide()
 
 
-# Register events
-videoplayer.addEvent "ended", ->
-	curtain.show()
+# # Register events
+# videoplayer.addEvent "ended", ->
+# 	curtain.show()
 
-	setTimeout ( ->
-		quiz.fadeIn()
-	), 1000
+# 	setTimeout ( ->
+# 		quiz.fadeIn()
+# 	), 1000
 
-buttonPlay.on "click", ->
-	play()
+# buttonPlay.on "click", ->
+# 	play()
 
-$("#buttonReplay").on "click", ->
-	play()
+# $("#buttonReplay").on "click", ->
+# 	play()
