@@ -20,29 +20,3 @@
 #= require_self
 #= require interactad
 @App = Em.Application.create()
-
-curtain = $("#curtain")
-buttonPlay = $("#buttonPlay")
-videoplayer = _V_ "interactad_clip"
-
-
-buttonPlay.on "click", ->
-	play()
-
-play = ->
-	videoplayer.play()
-	curtain.fadeOut ->
-		buttonPlay.hide()
-
-
-# Register events
-videoplayer.addEvent "ended", ->
-	curtain.show()
-
-	setTimeout ( ->
-		$("#quiz").fadeIn()
-	), 1000
-
-
-$("#buttonReplay").on "click", ->
-	play()
