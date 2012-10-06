@@ -12,8 +12,6 @@ App.initialize();
 # quiz = $("#quiz")
 # curtain = $("#curtain")
 # buttonPlay = $("#buttonPlay")
-# videoplayer = _V_ "interactad_clip"
-
 
 # play = ->
 # 	videoplayer.play()
