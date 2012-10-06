@@ -6,8 +6,13 @@
 // Document styles
 //-----------------------------------------
 
-$videoW: 640px
-$videoH: 360px
+@mixin button
+	+border-radius(8px)
+	position: absolute
+	height: 40px
+	width: 40px
+
+
 
 // Resets
 body
@@ -26,45 +31,54 @@ body
 		top: 0
 		width: $videoW
 		height: $videoH
-		cursor: pointer
+
+		#buttonPlay
+			+button
+			cursor: pointer
+			background-image: url("/assets/play.png")
+			background-repeat: no-repeat
+			background-position: center
+			top: 50%
+			left: 50%
+			height: 80px
+			width: 80px
+			margin-left: -(80px / 2)
+			margin-top: -(80px / 2)
 
 	#quiz
-		box-model: border-box
 		display: none // Comment for debugging
 		position: absolute
 		top: 0
 		color: white
 		width: 100%
 
-	#quiz .question
-		font-size: large
-		line-height: 50px
-		margin-bottom: 12px
-		padding: 0 10px
+		.question
+			font-size: large
+			line-height: 50px
+			margin-bottom: 12px
+			padding: 0 10px
 
-	#quiz .answer
-		margin: 0 0 3px 12px
-		padding-left: 7px
-		line-height: 32px
+		.answer
+			+border-radius(5px)
+			text-align: center
+			line-height: 60px
+			margin: 10px
+			width: 60px
+			cursor: pointer
+
+		#buttonReplay
+			+button
+			background-image: url("/assets/replay.png")
+			top: $videoH - 50px
+			left: $videoW - 50px
+			cursor: pointer
+
 
 
 
 /* Helper classes */
-.alpha70
+.alpha
 	/* Fallback for web browsers that doesn't support RGBa */
 	background: rgb(0, 0, 0)
 	/* RGBa with 0.6 opacity */
 	background: rgba(0, 0, 0, 0.7)
-
-.alpha50
-	/* Fallback for web browsers that doesn't support RGBa */
-	background: rgb(0, 0, 0)
-	/* RGBa with 0.6 opacity */
-	background: rgba(0, 0, 0, 0.5)
-
-.alpha50:hover
-	/* Fallback for web browsers that doesn't support RGBa */
-	background: rgb(40, 40, 40)
-	/* RGBa with 0.6 opacity */
-	background: rgba(0, 0, 0, 0.6)
-	cursor: pointer
