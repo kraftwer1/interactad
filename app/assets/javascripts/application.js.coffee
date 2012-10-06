@@ -35,4 +35,4 @@ videoplayer.addEvent "ended", ->
 
 curtain.on "click", ->
 	videoplayer.play()
-	curtain.hide()
+	curtain.fadeOut()
