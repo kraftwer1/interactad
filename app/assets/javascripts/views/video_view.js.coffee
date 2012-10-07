@@ -1,8 +1,14 @@
 App.VideoView = Ember.View.extend
 	templateName: "video"
-	didInsertElement: ->
-		this.$().on "playvideo", (event) ->
-			console.log event
+	videoEl: null
 
-	playvideo: ->
-		console.log "Juhui!"
+	didInsertElement: ->
+		@videoEl = @$("video").get(0)
+		$(@videoEl).on("ended", $.proxy(@end, @))
+
+	play: ->
+		@videoEl.play()
+
+	end: ->
+		# Parent -> children communication
+		@get("childViews")[0].end()

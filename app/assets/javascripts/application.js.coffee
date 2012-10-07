@@ -19,7 +19,5 @@
 #= require_self
 #= require interactad
 
-@App = Ember.Application.create
-	customEvents:
-		"playvideo": "playvideo"
-		"ended": "ended"
+@App = Ember.Application.create()
+# customEvents: {} looks interesting but didn't work...

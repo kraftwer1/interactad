@@ -1,14 +1,10 @@
 App.CurtainView = Ember.View.extend
 	templateName: "curtain"
-	playvideo: ->
-		console.log "hoi hoi hoi"
 
-	ended: ->
-		console.log "Ended event"
+	play: ->
+		# Child -> parent communication
+		@get("parentView").play()
+		@$().fadeOut()
 
-	didInsertElement: ->
-		this.$().on "playvideo", ->
-			console.log "Debug message"
-
-	hide: ->
-		this.$().fadeOut()
+	end: ->
+		console.log "Quiz fadeIn()"
