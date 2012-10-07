@@ -1,4 +1,8 @@
 App.VideoView = Ember.View.extend
 	templateName: "video"
-	play: ->
-		this.$("video").get(0).play()
+	didInsertElement: ->
+		this.$().on "playvideo", (event) ->
+			console.log event
+
+	playvideo: ->
+		console.log "Juhui!"

@@ -18,6 +18,8 @@
 #= require ember-data
 #= require_self
 #= require interactad
+
 @App = Ember.Application.create
 	customEvents:
 		"playvideo": "playvideo"
+		"ended": "ended"
