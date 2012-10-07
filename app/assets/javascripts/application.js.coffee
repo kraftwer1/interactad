@@ -12,11 +12,12 @@
 #
 #= require jquery
 #= require jquery_ujs
-#= require video.min
 #= require h5bp
 #= require handlebars
 #= require ember
 #= require ember-data
 #= require_self
 #= require interactad
-@App = Em.Application.create()
+@App = Ember.Application.create
+	customEvents:
+		"playvideo": "playvideo"

@@ -1,4 +1,7 @@
 App.CurtainView = Ember.View.extend
 	templateName: "curtain"
-	blib: ->
-		console.log "Debug message"
+	didInsertElement: ->
+		this.$().on "playvideo", ->
+			console.log "Debug message"
+	hide: ->
+		this.$().fadeOut()

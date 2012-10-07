@@ -1,5 +1,7 @@
 App.ButtonPlayView = Ember.View.extend
 	templateName: "button_play"
-	# click: ->
-	# 	video = $("video").get(0)
-	# 	video.play()
+	click: ->
+		this.trigger "playvideo"
+		# this.get("parentView").hide()
+		# video = $("video").get(0)
+		# video.play()
