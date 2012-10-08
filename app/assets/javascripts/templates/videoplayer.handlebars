@@ -1,0 +1,15 @@
+<div class="container">
+	{{#view App.VideoView}}
+		<video>
+			<source src="/assets/smallerlonger.mp4" type="video/mp4">
+		</video>
+
+		{{#view App.CurtainView}}
+			<div class="curtain">
+				{{#view App.ButtonPlayView}}
+					<div class="buttonPlay alpha"></div>
+				{{/view}}
+			</div>
+		{{/view}}
+	{{/view}}
+</div>
