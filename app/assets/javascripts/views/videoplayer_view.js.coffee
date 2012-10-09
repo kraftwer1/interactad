@@ -24,6 +24,7 @@ App.CurtainView = App.VideoView.extend
 		@get("parentView").play()
 
 	end: ->
+		childView.end() for childView in @get("childViews")
 		@$().fadeIn()
 
 
@@ -39,9 +40,13 @@ App.ButtonPlayView = App.CurtainView.extend
 		# http://stackoverflow.com/questions/12796048/how-can-i-make-super-using-the-parent-objects-context
 		@get("parentView").play()
 
+	end: ->
+		@toggleProperty("isVisible")
+
 
 App.QuizView = App.VideoView.extend
 	isVisible: false
+
 	end: ->
 		@$().fadeIn()
 		@toggleProperty("isVisible")
