@@ -20,18 +20,21 @@ App.VideoView = App.VideoPlayerView.extend
 
 App.CurtainView = App.VideoView.extend
 	play: ->
-		# Child -> parent communication
-		@get("parentView").play()
 		@$().fadeOut()
+		@get("parentView").play()
 
 	end: ->
-		console.log "Quiz fadeIn()"
+		@$().fadeIn()
 
 
-App.ButtonPlayView = App.VideoView.extend
-
+App.ButtonPlayView = App.CurtainView.extend
 	click: ->
-		# Child -> parent communication
+		@play()
+
+	play: ->
+		# Calling @_super() would be more elegant, but uses "this"
+		# instead of the parent classes context. I don't know
+		# how to prevent that...
+		# StackOverflow is here:
+		# http://stackoverflow.com/questions/12796048/how-can-i-make-super-using-the-parent-objects-context
 		@get("parentView").play()
-		# ...could also use safer (when moving views), but hardcoded method:
-		#@nearestInstanceOf(App.VideoView).play()
