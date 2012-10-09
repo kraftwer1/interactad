@@ -46,10 +46,16 @@ App.QuizView = Ember.View.extend
 	isVisible: false
 
 	play: ->
-		@$().fadeOut()
-		@set("isVisible", false)
+		childView.play() for childView in @get("childViews")
+
+		@$(".answer").fadeOut()
 
 	end: ->
+		childView.end() for childView in @get("childViews")
+
+		@$(".answer").fadeIn()
+
+		# Only important for the first play:
 		@$().fadeIn()
 		@set("isVisible", true)
 
@@ -57,3 +63,9 @@ App.QuizView = Ember.View.extend
 App.ButtonReplayView = Ember.View.extend
 	click: ->
 		@nearestInstanceOf(App.VideoView).play()
+
+	play: ->
+		@$().fadeOut()
+
+	end: ->
+		@$().fadeIn()
