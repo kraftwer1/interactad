@@ -47,6 +47,9 @@ App.ButtonPlayView = App.CurtainView.extend
 App.QuizView = App.VideoView.extend
 	isVisible: false
 
+	replay: ->
+		@get("parentView").play()
+
 	end: ->
 		@$().fadeIn()
 		@toggleProperty("isVisible")
