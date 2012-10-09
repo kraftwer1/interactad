@@ -2,7 +2,7 @@ App.VideoPlayerView = Ember.View.extend
 	templateName: "videoplayer"
 
 
-App.VideoView = App.VideoPlayerView.extend
+App.VideoView = Ember.View.extend
 	templateName: ""
 	videoEl: null
 
@@ -18,7 +18,7 @@ App.VideoView = App.VideoPlayerView.extend
 		childView.end() for childView in @get("childViews")
 
 
-App.CurtainView = App.VideoView.extend
+App.CurtainView = Ember.View.extend
 	play: ->
 		@$().fadeOut()
 		@get("parentView").play()
@@ -28,7 +28,7 @@ App.CurtainView = App.VideoView.extend
 		@$().fadeIn()
 
 
-App.ButtonPlayView = App.CurtainView.extend
+App.ButtonPlayView = Ember.View.extend
 	click: ->
 		@play()
 
@@ -44,11 +44,8 @@ App.ButtonPlayView = App.CurtainView.extend
 		@toggleProperty("isVisible")
 
 
-App.QuizView = App.VideoView.extend
+App.QuizView = Ember.View.extend
 	isVisible: false
-
-	replay: ->
-		@get("parentView").play()
 
 	end: ->
 		@$().fadeIn()
