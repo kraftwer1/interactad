@@ -38,3 +38,10 @@ App.ButtonPlayView = App.CurtainView.extend
 		# StackOverflow is here:
 		# http://stackoverflow.com/questions/12796048/how-can-i-make-super-using-the-parent-objects-context
 		@get("parentView").play()
+
+
+App.QuizView = App.VideoView.extend
+	isVisible: false
+	end: ->
+		@$().fadeIn()
+		@toggleProperty("isVisible")
