@@ -11,11 +11,12 @@
 		</div>
 	{{/view}}
 
-	{{#view App.QuizView}}
+	{{#view App.QuizView controllerBinding="App.testController"}}
 		<div class="quiz">
-			{{#each App.quizController}}
+			<div class="question alpha">{{question}}</div>
+			<!-- {{#each App.quizController}}
 				<div class="question alpha">{{question}}</div>
-			{{/each}}
+			{{/each}} -->
 			<div class="answer alpha">Grün</div>
 			<div class="answer alpha">Rot</div>
 			<div class="answer alpha">Blau</div>

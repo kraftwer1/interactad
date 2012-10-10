@@ -1,7 +1,3 @@
-Question = Ember.Object.extend
-	question: null
-	answers: []
-
 questions = [
 	question: "Welcher Passant hat die Flasche in den Gitarrenkoffer gelegt?"
 	answers: [
@@ -28,13 +24,13 @@ questions = [
 	]
 ]
 
-App.QuizController = Ember.ArrayController.extend
-	content: []
+App.TestController = Ember.ObjectController.extend
+	content: null
 	init: ->
 		@_super()
 
 		# Add random question
 		rand = Math.floor Math.random() * questions.length
-		@pushObject(questions[rand])
+		@set("content", questions[rand])
 
-App.quizController = App.QuizController.create()
+App.testController = App.TestController.create()
