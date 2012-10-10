@@ -5,7 +5,6 @@
 #= require_tree ./templates
 #= require_tree ./routes
 #= require ./store
-#= require questions
 #= require_self
 App.initialize();
 

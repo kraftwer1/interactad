@@ -43,7 +43,7 @@ App.ButtonPlayView = Ember.View.extend
 
 
 App.QuizView = Ember.View.extend
-	isVisible: false
+	# isVisible: false
 
 	play: ->
 		childView.play() for childView in @get("childViews")

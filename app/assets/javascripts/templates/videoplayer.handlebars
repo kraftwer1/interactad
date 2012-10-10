@@ -13,7 +13,9 @@
 
 	{{#view App.QuizView}}
 		<div class="quiz">
-			<div class="question alpha">Welche Farbe hat das Meer?</div>
+			{{#each App.quizController}}
+				<div class="question alpha">{{question}}</div>
+			{{/each}}
 			<div class="answer alpha">Grün</div>
 			<div class="answer alpha">Rot</div>
 			<div class="answer alpha">Blau</div>
