@@ -1,5 +1,6 @@
-App.TestController = Ember.ObjectController.extend
+App.QuizController = Ember.ObjectController.extend
 	content: null
+
 	init: ->
 		@_super()
 
@@ -7,4 +8,4 @@ App.TestController = Ember.ObjectController.extend
 		rand = Math.floor Math.random() * App.questions.length
 		@set("content", App.questions[rand])
 
-App.testController = App.TestController.create()
+App.quizController = App.QuizController.create()

@@ -60,6 +60,14 @@ App.QuizView = Ember.View.extend
 		@set("isVisible", true)
 
 
+App.AnswersView = Ember.CollectionView.extend
+	play: ->
+
+	end: ->
+
+	click: ->
+
+
 App.ButtonReplayView = Ember.View.extend
 	click: ->
 		@nearestInstanceOf(App.VideoView).play()
