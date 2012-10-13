@@ -1,5 +1,45 @@
-<!-- TODO: Wireframe -->
-
 <div class="container">
-	{{outlet}}
+
+	{{#view App.VideoView}}
+		<video width="960" height="540">
+			<source src="/assets/960.mp4" type="video/mp4">
+		</video>
+	{{/view}}
+
+	{{#view App.CurtainView}}
+		<div class="curtain">
+			{{#view App.ButtonPlayView}}
+				<div class="buttonPlay alpha"></div>
+			{{/view}}
+		</div>
+	{{/view}}
+
+	{{#view App.QuizView}}
+		<div class="quiz">
+			<div class="question alpha">{{question}}</div>
+
+			{{#collection App.AnswersView itemViewClass="App.AnswerView" contentBinding="answers"}}
+				<div class="answer alpha">{{view.content.answer}}</div>
+			{{/collection}}
+
+			{{#view App.ResultView}}
+				{{#if isAnswerCorrect}}
+					<div class="result alpha">
+						<img src="/assets/iconic/green/check_32x26.png" alt="Correct">
+						<span class="correct">Korrekt!</span>
+					</div>
+				{{else}}
+					<div class="result alpha">
+						<img src="/assets/iconic/red/x_28x28.png" alt="Incorrect">
+						<span class="incorrect">Leider falsch!</span>
+					</div>
+				{{/if}}
+			{{/view}}
+
+			{{#view App.ButtonReplayView}}
+				<div class="buttonReplay alpha"></div>
+			{{/view}}
+		</div>
+	{{/view}}
+
 </div>
