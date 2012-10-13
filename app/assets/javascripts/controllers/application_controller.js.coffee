@@ -1,7 +1,7 @@
 App.ApplicationController = Ember.ObjectController.extend
 	content: null
 	isPlaying: false
-	isAnswerCorrect: false
+	isAnswerCorrect: null
 
 	init: ->
 		@_super()

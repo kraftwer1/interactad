@@ -31,12 +31,12 @@ App.CurtainView = Ember.View.extend
 
 	).observes "controller.isPlaying"
 
-	hide: ->
-		@$().fadeOut()
-
 	show: ->
 		@$().fadeIn()
-	
+
+	hide: ->
+		@$().fadeOut(500)
+
 
 App.ButtonPlayView = Ember.View.extend
 	observeIsPlaying: ( ->
@@ -63,25 +63,43 @@ App.QuizView = Ember.View.extend
 
 	).observes "controller.isPlaying"
 
-	hide: ->
-		@$(".answer").fadeOut()
-
 	show: ->
 		@$(".answer").fadeIn()
 		@set "isVisible", true
 
+	hide: ->
+		@$(".answer").fadeOut()
 
-App.AnswersView = Ember.CollectionView.extend()
+
+App.AnswersView = Ember.CollectionView.extend
+	isVisible: false
+
+	observeIsPlaying: ( ->
+		if @get "controller.isPlaying"
+			@hide()
+		else
+			@show()
+
+	).observes "controller.isPlaying"
+
+	show: ->
+		@$().slideDown()
+
+	hide: ->
+		@$().slideUp()
 
 
 App.AnswerView = Ember.View.extend
-	isVisible: false
-
 	click: ->
 		@get("controller").checkAnswer @get "content.correct"
 
 
-App.ResultView = Ember.View.extend()
+App.ResultView = Ember.View.extend
+	isVisible: false
+
+	observeIsAnswerCorrect: ( ->
+		@$().fadeIn(50)
+	).observes "controller.isAnswerCorrect"
 
 
 App.ButtonReplayView = Ember.View.extend
