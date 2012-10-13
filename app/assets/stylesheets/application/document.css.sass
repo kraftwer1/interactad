@@ -6,11 +6,15 @@
 // Document styles
 //-----------------------------------------
 
-@mixin button
+@mixin absolute
 	+border-radius(5px)
 	position: absolute
 	height: 40px
 	width: 40px
+
+@mixin centerImageBg
+	background-position: center
+	background-repeat: no-repeat
 
 
 // Resets
@@ -34,11 +38,10 @@ body
 		height: $videoH
 
 		.buttonPlay
-			+button
+			+absolute
+			+centerImageBg
 			cursor: pointer
-			background-image: url("/assets/play.png")
-			background-repeat: no-repeat
-			background-position: center
+			background-image: url("/assets/iconic/white/play_24x32.png")
 			top: 50%
 			left: 50%
 			height: 80px
@@ -65,9 +68,18 @@ body
 			padding: 10px
 			cursor: pointer
 
+		.result
+			+absolute
+			+border-radius(5px)
+			line-height: 160px
+			width: 160px
+			top: 50%
+			left: 50%
+
 		.buttonReplay
-			+button
-			background-image: url("/assets/replay.png")
+			+absolute
+			+centerImageBg
+			background-image: url("/assets/iconic/white/reload_24x28.png")
 			top: $videoH - 50px
 			left: $videoW - 50px
 			cursor: pointer
