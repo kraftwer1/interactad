@@ -62,6 +62,7 @@ App.QuizView = Ember.View.extend
 
 
 App.AnswersView = Ember.CollectionView.extend
+	isVisible: false
 	play: ->
 		# Uncomment to delegate play() to children:
 		# childView.play() for childView in @get("childViews")
@@ -74,6 +75,9 @@ App.AnswersView = Ember.CollectionView.extend
 App.AnswerView = Ember.View.extend
 	click: ->
 		console.log @get "content.correct"
+
+
+App.ResultView = Ember.View.extend()
 
 
 App.ButtonReplayView = Ember.View.extend

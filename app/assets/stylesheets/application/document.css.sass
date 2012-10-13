@@ -12,6 +12,15 @@
 	height: 40px
 	width: 40px
 
+@mixin centerEl($w, $h: $w, $padding: 0)
+	+absolute
+	top: ($videoH / 2)
+	left: ($videoW / 2)
+	height: $h
+	width: $w
+	margin-left: -($w / 2) - $padding
+	margin-top: -($h / 2) - $padding
+
 @mixin centerImageBg
 	background-position: center
 	background-repeat: no-repeat
@@ -20,6 +29,7 @@
 // Resets
 body
 	background: url("/assets/bg.gif") #eeedee no-repeat
+
 
 .container
 	+single-box-shadow(#fff, 0px, 0px, 20px)
@@ -38,16 +48,10 @@ body
 		height: $videoH
 
 		.buttonPlay
-			+absolute
+			+centerEl(80px)
 			+centerImageBg
 			cursor: pointer
 			background-image: url("/assets/iconic/white/play_24x32.png")
-			top: 50%
-			left: 50%
-			height: 80px
-			width: 80px
-			margin-left: -(80px / 2)
-			margin-top: -(80px / 2)
 
 	.quiz
 		// display: none // Comment for debugging
@@ -69,12 +73,22 @@ body
 			cursor: pointer
 
 		.result
-			+absolute
 			+border-radius(5px)
-			line-height: 160px
-			width: 160px
-			top: 50%
-			left: 50%
+			+centerEl(160px, 28px, 14px)
+			+centerImageBg
+			line-height: 28px
+			padding: 14px
+
+			span
+				margin-left: 5px
+				font-weight: bold
+				font-size: large
+
+			.correct
+				color: green
+
+			.incorrect
+				color: red
 
 		.buttonReplay
 			+absolute

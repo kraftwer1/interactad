@@ -19,7 +19,16 @@
 				<div class="answer alpha">{{view.content.answer}}</div>
 			{{/collection}}
 
-			<div class="result alpha">Leider falsch!</div>
+			{{#view App.ResultView}}
+				<div class="result alpha">
+					<img src="/assets/iconic/green/check_32x26.png" alt="Incorrect">
+					<span class="correct">Korrekt!</span>
+				</div>
+				<div class="result alpha">
+					<img src="/assets/iconic/red/x_28x28.png" alt="Incorrect">
+					<span class="incorrect">Leider falsch!</span>
+				</div>
+			{{/view}}
 
 			{{#view App.ButtonReplayView}}
 				<div class="buttonReplay alpha"></div>
