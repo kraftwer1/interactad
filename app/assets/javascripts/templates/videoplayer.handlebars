@@ -15,7 +15,7 @@
 		<div class="quiz">
 			<div class="question alpha">{{question}}</div>
 
-			{{#collection App.AnswersView contentBinding="answers"}}
+			{{#collection App.AnswersView itemViewClass="App.AnswerView" contentBinding="answers"}}
 				<div class="answer alpha">{{view.content.answer}}</div>
 			{{/collection}}
 			

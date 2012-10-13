@@ -13,7 +13,7 @@ App.questions = [
 ,
 	question: "Welche Farbe hat das T-Shirt des Strassenmusikers?"
 	answers: [
-		answer: "Scharz"
+		answer: "Rot"
 		correct: false
 	,
 		answer: "Schwarz"
