@@ -44,7 +44,9 @@
 					</div>
 				{{/view}}
 
-				<div class="shotsLeft alpha">{{shotsLeft}} Versuche übrig...</div>
+				{{#view App.LeftShotsView}}
+					<div class="shotsLeft alpha">Noch {{shotsLeft}} Versuche übrig...</div>
+				{{/view}}
 			</div>
 		{{/view}}
 
