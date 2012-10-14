@@ -28,72 +28,74 @@
 
 // Resets
 body
-	background: url("/assets/bg.gif") #eeedee no-repeat
+	background-color: #eeedee
 
 
 .container
-	+single-box-shadow(#fff, 0px, 0px, 20px)
 	position: absolute
-	top: 240px
 	left: 50%
 	margin-left: -($videoW/2)
 	width: $videoW
 	height: $videoH
 
-	.curtain
-		background-image: url("/assets/960.jpg")
+	.logo, .address
+		margin: 28px 0
+
+	.videoplayer
+		// +single-box-shadow(#fff, 0px, 0px, 20px)
 		position: absolute
-		top: 0
-		width: $videoW
-		height: $videoH
+		top: 140px
+		text-align: right
 
-		.buttonPlay
-			+centerEl(80px)
-			+centerImageBg
-			cursor: pointer
-			background-image: url("/assets/iconic/white/play_24x32.png")
+		.curtain
+			background-image: url("/assets/960.jpg")
+			position: absolute
+			top: 0
+			width: $videoW
+			height: $videoH
 
-	.quiz
-		position: absolute
-		top: 0
-		color: white
-		width: 100%
+			.buttonPlay
+				+centerEl(80px)
+				+centerImageBg
+				cursor: pointer
+				background-image: url("/assets/iconic/white/play_24x32.png")
 
-		.question
-			font-size: large
-			line-height: 60px
-			margin-bottom: 12px
-			padding: 0 10px
+		.quiz
+			position: absolute
+			text-align: left
+			top: 0
+			color: white
+			width: 100%
 
-		.answer
-			+border-radius(5px)
-			padding: 5px
-			font-size: normal
-			margin: 0 10px 5px 10px
-			cursor: pointer
-
-		.result
-			+border-radius(5px)
-			+centerEl(160px, 96px, 10px)
-			+centerImageBg
-			cursor: pointer
-			text-align: center
-			padding: 10px
-
-			.correct, .incorrect
-				font-weight: bold
+			.question
 				font-size: large
-				margin: 5px
+				line-height: 60px
+				margin-bottom: 12px
+				padding: 0 10px
 
-			.correct
-				color: #86c440
+			.answer
+				+border-radius(5px)
+				padding: 5px
+				font-size: normal
+				margin: 0 10px 5px 10px
+				cursor: pointer
 
-			.incorrect
-				color: red
+			.result
+				+border-radius(5px)
+				+centerEl(160px, 96px, 10px)
+				+centerImageBg
+				cursor: pointer
+				text-align: center
+				padding: 10px
 
-			.small
-				font-weight: normal
-				font-size: small
+				.correct, .incorrect
+					font-weight: bold
+					font-size: large
+					margin: 5px
+
+				.small
+					font-weight: normal
+					font-size: small
 
 
 
@@ -104,3 +106,9 @@ body
 	background: rgb(0, 0, 0)
 	/* RGBa with 0.6 opacity */
 	background: rgba(0, 0, 0, 0.8)
+
+.correct
+	color: #86c440
+
+.incorrect
+	color: red

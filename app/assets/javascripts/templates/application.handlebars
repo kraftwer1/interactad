@@ -1,47 +1,48 @@
 <div class="container">
+	<img class="logo" src="/assets/logo.png" alt="Logo">
 
-	{{#view App.VideoView}}
-		<video width="960" height="540">
-			<source src="/assets/960.mp4" type="video/mp4">
-		</video>
-	{{/view}}
+	<div class="videoplayer">
+		{{#view App.VideoView}}
+			<video width="960" height="540">
+				<source src="/assets/960.mp4" type="video/mp4">
+			</video>
+		{{/view}}
 
-	{{#view App.CurtainView}}
-		<div class="curtain">
-			{{#view App.ButtonPlayView}}
-				<div class="buttonPlay alpha"></div>
-			{{/view}}
-		</div>
-	{{/view}}
+		{{#view App.CurtainView}}
+			<div class="curtain">
+				{{#view App.ButtonPlayView}}
+					<div {{action play target="controller"}} class="buttonPlay alpha"></div>
+				{{/view}}
+			</div>
+		{{/view}}
 
-	{{#view App.QuizView}}
-		<div class="quiz">
-			<div class="question alpha">{{question}}</div>
+		{{#view App.QuizView}}
+			<div class="quiz">
+				<div class="question alpha">{{question}}</div>
 
-			{{#collection App.AnswersView itemViewClass="App.AnswerView" contentBinding="answers"}}
-				<div class="answer alpha">{{view.content.answer}}</div>
-			{{/collection}}
+				{{#collection App.AnswersView itemViewClass="App.AnswerView" contentBinding="answers"}}
+					<div class="answer alpha">{{view.content.answer}}</div>
+				{{/collection}}
 
-			{{#view App.ResultView}}
-				{{#if isAnswerCorrect}}
-					<div class="result alpha">
-						<img src="/assets/iconic/green/check_32x26.png" alt="Correct">
-						<div class="correct">Korrekt!</div>
-						<div class="correct small">Klicken und nächste Frage beantworten</div>
-					</div>
-				{{else}}
-					<div class="buttonReplay alpha"></div>
+				{{#view App.ResultView}}
+					{{#if isAnswerCorrect}}
+						<div class="result alpha">
+							<img src="/assets/iconic/green/check_32x26.png" alt="Correct">
+							<div class="correct">Korrekt!</div>
+							<div class="correct small">Klicken und nächste Frage beantworten</div>
+						</div>
+					{{else}}
+						<div {{action play target="controller"}} class="result alpha">
+							<img src="/assets/iconic/red/reload_alt_24x28.png" alt="Incorrect">
+							<div class="incorrect">Leider falsch!</div>
+							<div class="incorrect small">Klicken und nochmal schauen</div>
+						</div>
+					{{/if}}
+				{{/view}}
+				
+			</div>
+		{{/view}}
 
-					<div {{action play target="controller"}} class="result alpha">
-						<img src="/assets/iconic/red/reload_alt_24x28.png" alt="Incorrect">
-						<div class="incorrect">Leider falsch!</div>
-						<div class="incorrect small">Klicken und nochmal schauen</div>
-					</div>
-				{{/if}}
-			{{/view}}
-
-			
-		</div>
-	{{/view}}
-
+		<img class="address" src="/assets/address.png" alt="Address">
+	</div>
 </div>

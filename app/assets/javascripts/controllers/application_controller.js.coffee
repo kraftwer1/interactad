@@ -13,11 +13,16 @@ App.ApplicationController = Ember.ObjectController.extend
 	play: ->
 		@set("isPlaying", true)
 
+		# Reset answer
+		@set("isAnswerCorrect", null)
+
 	end: ->
 		@set("isPlaying", false)		
 
 	checkAnswer: (answer) ->
 		if answer
 			@set "isAnswerCorrect", true
+			true
 		else
 			@set "isAnswerCorrect", false
+			false

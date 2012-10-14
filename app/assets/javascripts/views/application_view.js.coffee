@@ -45,9 +45,6 @@ App.ButtonPlayView = Ember.View.extend
 
 	).observes "controller.isPlaying"
 
-	click: ->
-		@get("controller").play()
-
 	hide: ->
 		@set "isVisible", false
 
@@ -91,24 +88,28 @@ App.AnswersView = Ember.CollectionView.extend
 
 App.AnswerView = Ember.View.extend
 	click: ->
-		@get("controller").checkAnswer @get "content.correct"
+		if @get("controller").checkAnswer @get "content.correct"
+			@$().addClass("correct")
+		else
+			@$().addClass("incorrect")
 
 
 App.ResultView = Ember.View.extend
 	isVisible: false
 
 	observeIsPlaying: ((obj, key) ->
-		if @get key
-			@hide()
+		@hide()
 
 	).observes "controller.isPlaying"
 
 	observeIsAnswerCorrect: ((obj, key) ->
-		@show()
+		# Only show this if answer is either correct (true) or incorrect (false)
+		if @get(key) is true or @get(key) is false
+			@show()
 	).observes "controller.isAnswerCorrect"
 
 	show: ->
-		@$().fadeIn(50)
+		@set("isVisible", true)
 
 	hide: ->
-		@$().fadeOut()
+		@set("isVisible", false)
