@@ -2,7 +2,9 @@ App.ApplicationController = Ember.ObjectController.extend
 	content: null
 	isPlaying: false
 	isAnswerCorrect: null
+	isLoadingNextQuestion: false
 	currentQuestionNr: null
+	slowFadeOutSpeed: 1000
 
 	init: ->
 		@_super()
@@ -29,15 +31,25 @@ App.ApplicationController = Ember.ObjectController.extend
 
 
 	nextQuestion: ->
-		# Empty content
-		@set("content", null)
+		@set "isLoadingNextQuestion", true
 
-		# Reset answer
-		@set("isAnswerCorrect", null)
+		that = @
 
-		# Add random question
-		@set "currentQuestionNr", Math.floor Math.random() * App.questions.length
-		@set "content", App.questions[@get("currentQuestionNr")]
+		setTimeout ( ->
 
-		# Remove element from App.questions-array so that the question will not be asked again
-		App.questions.splice @get("currentQuestionNr"), 1
+			# Empty content
+			that.set "content", null
+
+			# Reset answer
+			that.set "isAnswerCorrect", null
+
+			# Add random question
+			that.set "currentQuestionNr", Math.floor Math.random() * App.questions.length
+			that.set "content", App.questions[that.get("currentQuestionNr")]
+
+			# Remove element from App.questions-array so that the question will not be asked again
+			App.questions.splice that.get("currentQuestionNr"), 1
+
+			that.set "isLoadingNextQuestion", false
+
+		), @get "slowFadeOutSpeed"

@@ -35,7 +35,7 @@ App.CurtainView = Ember.View.extend
 		@$().fadeIn()
 
 	hide: ->
-		@$().fadeOut(500)
+		@$().fadeOut @get "controller.slowFadeOutSpeed"
 
 
 App.ButtonPlayView = Ember.View.extend
@@ -46,7 +46,7 @@ App.ButtonPlayView = Ember.View.extend
 	).observes "controller.isPlaying"
 
 	hide: ->
-		@$().fadeOut()
+		@$().fadeOut @get "controller.slowFadeOutSpeed"
 
 
 App.QuizView = Ember.View.extend
@@ -80,6 +80,14 @@ App.AnswersView = Ember.CollectionView.extend
 			@show()
 
 	).observes "controller.isPlaying"
+
+	observeIsLoadingNextQuestion: ((obj, key) ->
+		if @get key
+			@hide()
+		else
+			@show()
+
+	).observes "controller.isLoadingNextQuestion"
 
 	show: ->
 		@$().slideDown()
