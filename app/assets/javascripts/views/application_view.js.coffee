@@ -46,7 +46,7 @@ App.ButtonPlayView = Ember.View.extend
 	).observes "controller.isPlaying"
 
 	hide: ->
-		@set "isVisible", false
+		@$().fadeOut()
 
 
 App.QuizView = Ember.View.extend
@@ -97,6 +97,7 @@ App.AnswerView = Ember.View.extend
 
 
 App.ResultView = Ember.View.extend
+	# Comment for debugging:
 	isVisible: false
 
 	observeIsPlaying: ((obj, key) ->
