@@ -5,6 +5,7 @@ App.ApplicationController = Ember.ObjectController.extend
 	isLoadingNextQuestion: false
 	currentQuestionNr: null
 	slowFadeOutSpeed: 1000
+	delayBetweenQuestions: 500
 
 	init: ->
 		@_super()
@@ -12,13 +13,13 @@ App.ApplicationController = Ember.ObjectController.extend
 
 
 	play: ->
-		@set("isPlaying", true)
+		@set "isPlaying", true
 
 		# Reset answer
-		@set("isAnswerCorrect", null)
+		@set "isAnswerCorrect", null
 
 	end: ->
-		@set("isPlaying", false)	
+		@set "isPlaying", false	
 
 
 	checkAnswer: (answer) ->
@@ -52,4 +53,4 @@ App.ApplicationController = Ember.ObjectController.extend
 
 			that.set "isLoadingNextQuestion", false
 
-		), @get "slowFadeOutSpeed"
+		), @get "delayBetweenQuestions"
