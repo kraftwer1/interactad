@@ -27,7 +27,7 @@
 				{{#view App.ResultView}}
 					<div class="clickBlocker">
 						{{#if isAnswerCorrect}}
-							<div class="result alpha">
+							<div {{action nextQuestion target="controller"}} class="result alpha">
 								<img src="/assets/iconic/green/check_32x26.png" alt="Correct">
 								<div class="correct">Korrekt!</div>
 								<div class="correct small">Klicken und nächste Frage beantworten</div>

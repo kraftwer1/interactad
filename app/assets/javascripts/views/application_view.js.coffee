@@ -50,6 +50,7 @@ App.ButtonPlayView = Ember.View.extend
 
 
 App.QuizView = Ember.View.extend
+	# Comment for debugging:
 	isVisible: false
 
 	observeIsPlaying: ((obj, key) ->
@@ -69,6 +70,7 @@ App.QuizView = Ember.View.extend
 
 
 App.AnswersView = Ember.CollectionView.extend
+	# Comment for debugging:
 	isVisible: false
 
 	observeIsPlaying: ((obj, key) ->
@@ -106,6 +108,8 @@ App.ResultView = Ember.View.extend
 		# Only show this if answer is either correct (true) or incorrect (false)
 		if @get(key) is true or @get(key) is false
 			@show()
+		else
+			@hide()
 	).observes "controller.isAnswerCorrect"
 
 	show: ->
