@@ -67,21 +67,23 @@ body
 
 		.answer
 			+border-radius(5px)
-			padding: 10px
-			margin: 0 10px 10px 10px
+			padding: 5px
+			font-size: normal
+			margin: 0 10px 5px 10px
 			cursor: pointer
 
 		.result
 			+border-radius(5px)
-			+centerEl(160px, 28px, 14px)
+			+centerEl(160px, 96px, 10px)
 			+centerImageBg
-			line-height: 28px
-			padding: 14px
+			cursor: pointer
+			text-align: center
+			padding: 10px
 
-			span
-				margin-left: 5px
+			.correct, .incorrect
 				font-weight: bold
 				font-size: large
+				margin: 5px
 
 			.correct
 				color: #86c440
@@ -89,13 +91,9 @@ body
 			.incorrect
 				color: red
 
-		.buttonReplay
-			+absolute
-			+centerImageBg
-			background-image: url("/assets/iconic/white/reload_24x28.png")
-			top: $videoH - 50px
-			left: $videoW - 50px
-			cursor: pointer
+			.small
+				font-weight: normal
+				font-size: small
 
 
 
@@ -105,4 +103,4 @@ body
 	/* Fallback for web browsers that doesn't support RGBa */
 	background: rgb(0, 0, 0)
 	/* RGBa with 0.6 opacity */
-	background: rgba(0, 0, 0, 0.7)
+	background: rgba(0, 0, 0, 0.8)

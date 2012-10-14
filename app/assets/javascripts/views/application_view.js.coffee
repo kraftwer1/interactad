@@ -5,8 +5,8 @@ App.ApplicationView = Ember.View.extend
 App.VideoView = Ember.View.extend
 	videoEl: null
 
-	observeIsPlaying: ( ->
-		if @get "controller.isPlaying"
+	observeIsPlaying: ((obj, key) ->
+		if @get key
 			@play()
 
 	).observes "controller.isPlaying"
@@ -23,8 +23,8 @@ App.VideoView = Ember.View.extend
 
 
 App.CurtainView = Ember.View.extend
-	observeIsPlaying: ( ->
-		if @get "controller.isPlaying"
+	observeIsPlaying: ((obj, key) ->
+		if @get key
 			@hide()
 		else
 			@show()
@@ -39,8 +39,8 @@ App.CurtainView = Ember.View.extend
 
 
 App.ButtonPlayView = Ember.View.extend
-	observeIsPlaying: ( ->
-		if "controller.isPlaying"
+	observeIsPlaying: ((obj, key) ->
+		if @get key
 			@hide()
 
 	).observes "controller.isPlaying"
@@ -55,8 +55,8 @@ App.ButtonPlayView = Ember.View.extend
 App.QuizView = Ember.View.extend
 	isVisible: false
 
-	observeIsPlaying: ( ->
-		if @get "controller.isPlaying"
+	observeIsPlaying: ((obj, key) ->
+		if @get key
 			@hide()
 		else
 			@show()
@@ -74,8 +74,8 @@ App.QuizView = Ember.View.extend
 App.AnswersView = Ember.CollectionView.extend
 	isVisible: false
 
-	observeIsPlaying: ( ->
-		if @get "controller.isPlaying"
+	observeIsPlaying: ((obj, key) ->
+		if @get key
 			@hide()
 		else
 			@show()
@@ -97,19 +97,18 @@ App.AnswerView = Ember.View.extend
 App.ResultView = Ember.View.extend
 	isVisible: false
 
-	observeIsAnswerCorrect: ( ->
-		@$().fadeIn(50)
-	).observes "controller.isAnswerCorrect"
-
-
-App.ButtonReplayView = Ember.View.extend
-	observeIsPlaying: ( ->
-		if @get("controller.isPlaying")
-			@$().fadeOut()
-		else
-			@$().fadeIn()		
+	observeIsPlaying: ((obj, key) ->
+		if @get key
+			@hide()
 
 	).observes "controller.isPlaying"
 
-	click: ->
-		@get("controller").play()
+	observeIsAnswerCorrect: ((obj, key) ->
+		@show()
+	).observes "controller.isAnswerCorrect"
+
+	show: ->
+		@$().fadeIn(50)
+
+	hide: ->
+		@$().fadeOut()
