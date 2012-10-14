@@ -18,7 +18,9 @@
 
 		{{#view App.QuizView}}
 			<div class="quiz">
-				<div class="question alpha">{{question}}</div>
+				<div class="question alpha">
+					<span>{{currentQuestionNr}}/{{maxQuestions}}: </span> {{question}}
+				</div>
 
 				{{#collection App.AnswersView itemViewClass="App.AnswerView" contentBinding="answers"}}
 					<div class="answer alpha">{{view.content.answer}}</div>
@@ -41,7 +43,8 @@
 						{{/if}}
 					</div>
 				{{/view}}
-				
+
+				<div class="shotsLeft alpha">{{shotsLeft}} Versuche übrig...</div>
 			</div>
 		{{/view}}
 

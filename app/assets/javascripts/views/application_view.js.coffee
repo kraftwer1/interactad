@@ -51,7 +51,7 @@ App.ButtonPlayView = Ember.View.extend
 
 App.QuizView = Ember.View.extend
 	# Comment for debugging:
-	isVisible: false
+	# isVisible: false
 
 	observeIsPlaying: ((obj, key) ->
 		if @get key
