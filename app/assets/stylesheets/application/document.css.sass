@@ -80,13 +80,19 @@ body
 				margin: 0 10px 5px 10px
 				cursor: pointer
 
-			.result
-				+border-radius(5px)
-				+centerEl(160px, 96px, 10px)
-				+centerImageBg
-				cursor: pointer
-				text-align: center
-				padding: 10px
+			.clickBlocker
+				position: absolute
+				top: 0
+				width: $videoW
+				height: $videoH
+
+				.result
+					+border-radius(5px)
+					+centerEl(160px, 96px, 10px)
+					+centerImageBg
+					cursor: pointer
+					text-align: center
+					padding: 10px
 
 				.correct, .incorrect
 					font-weight: bold

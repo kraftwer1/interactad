@@ -25,19 +25,21 @@
 				{{/collection}}
 
 				{{#view App.ResultView}}
-					{{#if isAnswerCorrect}}
-						<div class="result alpha">
-							<img src="/assets/iconic/green/check_32x26.png" alt="Correct">
-							<div class="correct">Korrekt!</div>
-							<div class="correct small">Klicken und nächste Frage beantworten</div>
-						</div>
-					{{else}}
-						<div {{action play target="controller"}} class="result alpha">
-							<img src="/assets/iconic/red/reload_alt_24x28.png" alt="Incorrect">
-							<div class="incorrect">Leider falsch!</div>
-							<div class="incorrect small">Klicken und nochmal schauen</div>
-						</div>
-					{{/if}}
+					<div class="clickBlocker">
+						{{#if isAnswerCorrect}}
+							<div class="result alpha">
+								<img src="/assets/iconic/green/check_32x26.png" alt="Correct">
+								<div class="correct">Korrekt!</div>
+								<div class="correct small">Klicken und nächste Frage beantworten</div>
+							</div>
+						{{else}}
+							<div {{action play target="controller"}} class="result alpha">
+								<img src="/assets/iconic/red/reload_alt_24x28.png" alt="Incorrect">
+								<div class="incorrect">Leider falsch!</div>
+								<div class="incorrect small">Klicken und nochmal schauen</div>
+							</div>
+						{{/if}}
+					</div>
 				{{/view}}
 				
 			</div>
