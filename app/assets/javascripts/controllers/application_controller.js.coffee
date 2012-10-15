@@ -5,11 +5,21 @@ App.ApplicationController = Ember.ObjectController.extend
 	isLoadingNextQuestion: false
 	currentQuestionNr: 0
 	currentQuestionArrayIndex: null
-	shotsLeft: 3
 	maxQuestions: 3
 	slowFadeOutSpeed: 1000
 	delayBetweenQuestions: 500
 	isGameOver: false
+	shotsLeft: 3
+	shotsLeftGermanized: (->
+		if @get("shotsLeft") is 3
+			"Nur noch drei Versuche"
+		else if @get("shotsLeft") is 2
+			"Nur noch zwei Versuche"
+		else if @get("shotsLeft") is 1
+			"Nur noch ein Versuch"
+		else
+			"Keine Versuche mehr"
+	).property("shotsLeft")
 
 	init: ->
 		@_super()

@@ -35,7 +35,7 @@ App.CurtainView = Ember.View.extend
 		@$().fadeIn()
 
 	hide: ->
-		@$().fadeOut @get "controller.slowFadeOutSpeed"
+		@$().fadeOut @get "controller.slowFadeSpeed"
 
 
 App.ButtonPlayView = Ember.View.extend
@@ -46,12 +46,12 @@ App.ButtonPlayView = Ember.View.extend
 	).observes "controller.isPlaying"
 
 	hide: ->
-		@$().fadeOut @get "controller.slowFadeOutSpeed"
+		@$().fadeOut @get "controller.slowFadeSpeed"
 
 
 App.QuizView = Ember.View.extend
 	# Comment for debugging:
-	isVisible: false
+	# isVisible: false
 
 	observeIsGameOver: ((obj, key) ->
 		@hide()
@@ -74,15 +74,6 @@ App.QuizView = Ember.View.extend
 
 	hideAnswers: ->
 		@$(".answer").fadeOut()
-
-
-App.GameOverView = Ember.View.extend
-	isVisible: false
-
-	observeIsGameOver: ((obj, key) ->
-		@$().fadeIn()
-
-	).observes "controller.isGameOver"
 
 
 App.AnswersView = Ember.CollectionView.extend
@@ -155,15 +146,23 @@ App.LeftShotsView = Ember.View.extend
 
 	).observes "controller.shotsLeft"
 
-	observeIsPlaying: ((obj, key) ->
+	observeIsPlaying: (obj, key) ->
 		if @get key
 			@hide()
 		else
 			@show()
-	)
 
 	show: ->
 		@$().fadeIn()
 
 	hide: ->
 		@$().fadeOut()
+
+
+App.GameOverView = Ember.View.extend
+	isVisible: false
+
+	observeIsGameOver: ((obj, key) ->
+		@$().fadeIn @get "controller.slowFadeSpeed"
+
+	).observes "controller.isGameOver"
