@@ -53,9 +53,13 @@ App.QuizView = Ember.View.extend
 	# Comment for debugging:
 	isVisible: false
 
+	observeIsGameOver: ((obj, key) ->
+		@hide()
+	).observes "controller.isGameOver"
+
 	observeIsPlaying: ((obj, key) ->
 		if @get key
-			@hide()
+			@hideAnswers()
 		else
 			@show()
 
@@ -66,7 +70,19 @@ App.QuizView = Ember.View.extend
 		@set "isVisible", true
 
 	hide: ->
+		@$().fadeOut()
+
+	hideAnswers: ->
 		@$(".answer").fadeOut()
+
+
+App.GameOverView = Ember.View.extend
+	isVisible: false
+
+	observeIsGameOver: ((obj, key) ->
+		@$().fadeIn()
+
+	).observes "controller.isGameOver"
 
 
 App.AnswersView = Ember.CollectionView.extend
@@ -119,19 +135,35 @@ App.ResultView = Ember.View.extend
 			@show()
 		else
 			@hide()
+
 	).observes "controller.isAnswerCorrect"
 
 	show: ->
-		@set("isVisible", true)
+		@set "isVisible", true
 
 	hide: ->
-		@set("isVisible", false)
+		@set "isVisible", false
 
 
 App.LeftShotsView = Ember.View.extend
 	isVisible: false
 
 	observeShotsLeft: ((obj, key) ->
-		@$().fadeIn()
+		if @get(key) is 2
+			@addObserver "controller.isPlaying", @, @observeIsPlaying
+			@show()
 
 	).observes "controller.shotsLeft"
+
+	observeIsPlaying: ((obj, key) ->
+		if @get key
+			@hide()
+		else
+			@show()
+	)
+
+	show: ->
+		@$().fadeIn()
+
+	hide: ->
+		@$().fadeOut()

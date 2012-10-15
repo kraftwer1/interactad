@@ -55,7 +55,6 @@ body
 			height: $videoH
 
 			.buttonPlay
-				border: 3px solid black
 				+centerEl(100px)
 				+centerImageBg
 				cursor: pointer
@@ -122,11 +121,19 @@ body
 
 			.shotsLeft
 				box-sizing: border-box
+				color: yellow
 				position: absolute
 				padding: 10px
 				bottom: 0
 				width: $videoW
 
+		.gameOver
+			+centerEl(440px, 80px)
+			color: white
+			text-align: center
+			font-size: 48px
+			line-height: 80px
+			font-weight: bold
 
 
 

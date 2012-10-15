@@ -9,6 +9,7 @@ App.ApplicationController = Ember.ObjectController.extend
 	maxQuestions: 3
 	slowFadeOutSpeed: 1000
 	delayBetweenQuestions: 500
+	isGameOver: false
 
 	init: ->
 		@_super()
@@ -32,6 +33,10 @@ App.ApplicationController = Ember.ObjectController.extend
 		else
 			@set "isAnswerCorrect", false
 			@set "shotsLeft", @get("shotsLeft") - 1
+
+			if @get("shotsLeft") is 0
+				@set "isGameOver", true
+
 			false
 
 
