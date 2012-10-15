@@ -38,7 +38,7 @@
 							<div {{action play target="controller"}} class="result alpha">
 								<div class="incorrectIcon"></div>
 								<div class="incorrect">Leider falsch!</div>
-								<div class="incorrect small">Klicken und nochmal schauen</div>
+								<div class="small incorrect">Klicken und nochmal schauen</div>
 							</div>
 						{{/if}}
 					</div>
@@ -56,6 +56,20 @@
 			<div class="gameOver alpha">G a m e&nbsp;&nbsp;&nbsp;O v e r...</div>
 		{{/view}}
 
+		{{#view App.GameWonView}}
+			<div class="gameWon alpha clearfix">
+				Gewonnen!
+				<div class="qr"></div>
+				<div class="small">
+					Hier könnten Sie Ihrem Gewinner einen Preis verleihen.<br>
+					Zum Beispiel per QR-Code!<br>
+					<span class="spotlight">We put you in the right spotlight</span>
+				</div>
+			</div>
+		{{/view}}
+
 		<img class="address" src="/assets/address.png" alt="Address">
 	</div>
 </div>
+
+<div class="banner"></div>

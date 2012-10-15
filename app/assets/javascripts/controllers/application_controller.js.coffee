@@ -6,11 +6,12 @@ App.ApplicationController = Ember.ObjectController.extend
 	currentQuestionNr: 0
 	currentQuestionArrayIndex: null
 	maxQuestions: 3
-	slowFadeOutSpeed: 1000
+	slowFadeSpeed: 1000
 	delayBetweenQuestions: 500
 	isGameOver: false
+	isGameWon: false
 	shotsLeft: 3
-	shotsLeftGermanized: (->
+	shotsLeftGermanized: (() ->
 		if @get("shotsLeft") is 3
 			"Nur noch drei Versuche"
 		else if @get("shotsLeft") is 2
@@ -39,7 +40,12 @@ App.ApplicationController = Ember.ObjectController.extend
 	checkAnswer: (answer) ->
 		if answer
 			@set "isAnswerCorrect", true
+
+			if @get("currentQuestionNr") is 3
+				@set "isGameWon", true
+
 			true
+
 		else
 			@set "isAnswerCorrect", false
 			@set "shotsLeft", @get("shotsLeft") - 1

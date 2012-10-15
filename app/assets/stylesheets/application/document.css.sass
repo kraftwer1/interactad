@@ -115,10 +115,6 @@ body
 					font-size: large
 					margin: 5px
 
-				.small
-					font-weight: normal
-					font-size: small
-
 			.shotsLeft
 				box-sizing: border-box
 				color: yellow
@@ -127,13 +123,35 @@ body
 				bottom: 0
 				width: $videoW
 
-		.gameOver
+		.gameOver, .gameWon
 			+centerEl(440px, 80px)
 			color: white
 			text-align: center
 			font-size: 48px
 			line-height: 80px
 			font-weight: bold
+
+		.gameWon
+			+centerEl(570px, 160px)
+			width: 570px
+			height: 165px
+			text-align: left
+
+			.qr
+				background: url("/assets/qr.gif") center no-repeat
+				height: 120px
+				width: 120px
+				float: left
+				margin: 20px
+
+
+
+.banner
+	background: url("/assets/banner.png") no-repeat center
+	height: 300px
+	width: 300px
+	position: fixed
+	right: 0
 
 
 
@@ -144,8 +162,17 @@ body
 	/* RGBa with 0.6 opacity */
 	background: rgba(0, 0, 0, 0.8)
 
+.small
+	font-weight: normal !important
+	font-size: 14px !important
+	line-height: 18px !important
+
 .correct
 	color: #86c440
 
 .incorrect
 	color: red
+
+.spotlight
+	font-weight: bold
+	line-height: 28px

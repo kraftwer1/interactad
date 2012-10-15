@@ -51,11 +51,11 @@ App.ButtonPlayView = Ember.View.extend
 
 App.QuizView = Ember.View.extend
 	# Comment for debugging:
-	# isVisible: false
+	isVisible: false
 
-	observeIsGameOver: ((obj, key) ->
+	observeIsGameOverAndIsGameWon: ((obj, key) ->
 		@hide()
-	).observes "controller.isGameOver"
+	).observes "controller.isGameOver", "controller.isGameWon"
 
 	observeIsPlaying: ((obj, key) ->
 		if @get key
@@ -77,7 +77,6 @@ App.QuizView = Ember.View.extend
 
 
 App.AnswersView = Ember.CollectionView.extend
-	# Comment for debugging:
 	isVisible: false
 
 	observeIsPlaying: ((obj, key) ->
@@ -112,7 +111,6 @@ App.AnswerView = Ember.View.extend
 
 
 App.ResultView = Ember.View.extend
-	# Comment for debugging:
 	isVisible: false
 
 	observeIsPlaying: ((obj, key) ->
@@ -166,3 +164,12 @@ App.GameOverView = Ember.View.extend
 		@$().fadeIn @get "controller.slowFadeSpeed"
 
 	).observes "controller.isGameOver"
+
+
+App.GameWonView = Ember.View.extend
+	isVisible: false
+
+	observeIsGameWon: ((obj, key) ->
+		@$().fadeIn @get "controller.slowFadeSpeed"
+
+	).observes "controller.isGameWon"
