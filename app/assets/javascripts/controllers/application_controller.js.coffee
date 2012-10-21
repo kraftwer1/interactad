@@ -5,7 +5,7 @@ App.ApplicationController = Ember.ObjectController.extend
 	isLoadingNextQuestion: false
 	currentQuestionNr: 0
 	currentQuestionArrayIndex: null
-	maxQuestions: 3
+	amountOfQuestionsBeingAsked: 4
 	slowFadeSpeed: 1000
 	delayBetweenQuestions: 500
 	isGameOver: false
@@ -41,7 +41,7 @@ App.ApplicationController = Ember.ObjectController.extend
 		if answer
 			@set "isAnswerCorrect", true
 
-			if @get("currentQuestionNr") is 3
+			if @get("currentQuestionNr") is @get("amountOfQuestionsBeingAsked")
 				@set "isGameWon", true
 
 			true

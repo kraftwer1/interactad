@@ -20,7 +20,7 @@
 		{{#view App.QuizView}}
 			<div class="quiz">
 				<div class="question alpha">
-					<span>{{currentQuestionNr}}/{{maxQuestions}}: </span> {{question}}
+					<span>{{currentQuestionNr}}/{{amountOfQuestionsBeingAsked}}: </span> {{question}}
 				</div>
 
 				{{#collection App.AnswersView itemViewClass="App.AnswerView" contentBinding="answers"}}
